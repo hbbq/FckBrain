@@ -11,7 +11,7 @@ namespace FckBrain.Tests.Parser
 {
     public class CodeParserTests
     {
-
+        
         private static ICodeParser GetCodeParser() => new CodeParser();
 
         [Theory]

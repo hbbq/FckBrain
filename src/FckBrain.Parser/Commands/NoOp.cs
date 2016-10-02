@@ -9,7 +9,7 @@ namespace FckBrain.Parser.Commands
     public class NoOp : CommandBase
     {
 
-        private char _symbol;
+        private readonly char _symbol;
 
         public override char Symbol => _symbol;
 
