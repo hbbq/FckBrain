@@ -9,7 +9,7 @@ namespace FckBrain.Engine
     class Memory : IMemory
     {
 
-        private byte[] _heap;
+        private readonly byte[] _heap;
         private const ulong _size = 30000;
         
         public Memory()
