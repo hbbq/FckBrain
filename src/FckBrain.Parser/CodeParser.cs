@@ -16,10 +16,7 @@ namespace FckBrain.Parser
 
         public string SourceCode { get; set; }
 
-        public IEnumerable<ICommand> GetAllCommands()
-        {
-            return _commands;
-        }
+        public IEnumerable<ICommand> GetAllCommands() => _commands;
 
         public ICommand GetCommandAt(int position)
         {
