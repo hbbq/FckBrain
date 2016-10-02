@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{60E2C45C-5E6C-4977-A51C-014DBA47EDB4}</ProjectGuid>
+    <ProjectGuid>{FB57E841-7D18-43CF-A79B-2CBBD4121274}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FckBrain.Engine</RootNamespace>
-    <AssemblyName>FckBrain.Engine</AssemblyName>
+    <RootNamespace>FckBrain.Parser</RootNamespace>
+    <AssemblyName>FckBrain.Parser</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,9 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IMemory.cs" />
-    <Compile Include="Memory.cs" />
-    <Compile Include="State.cs" />
+    <Compile Include="CodeParser.cs" />
+    <Compile Include="Commands\NoOp.cs" />
+    <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\Output.cs" />
+    <Compile Include="Commands\Input.cs" />
+    <Compile Include="Commands\BlockStart.cs" />
+    <Compile Include="Commands\BlockEnd.cs" />
+    <Compile Include="Commands\DataDecrement.cs" />
+    <Compile Include="Commands\DataIncrement.cs" />
+    <Compile Include="Commands\PonterDecrement.cs" />
+    <Compile Include="Commands\PointerIncrement.cs" />
+    <Compile Include="ICodeParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

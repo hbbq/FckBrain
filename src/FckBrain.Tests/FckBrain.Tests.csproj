@@ -10,10 +10,11 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FckBrain.Tests</RootNamespace>
     <AssemblyName>FckBrain.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -63,6 +64,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Parser\CodeParserTests.cs" />
     <Compile Include="Engine\MemoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -70,6 +72,10 @@
     <ProjectReference Include="..\FckBrain.Engine\FckBrain.Engine.csproj">
       <Project>{60e2c45c-5e6c-4977-a51c-014dba47edb4}</Project>
       <Name>FckBrain.Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FckBrain.Parser\FckBrain.Parser.csproj">
+      <Project>{fb57e841-7d18-43cf-a79b-2cbbd4121274}</Project>
+      <Name>FckBrain.Parser</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
