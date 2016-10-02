@@ -9,10 +9,11 @@ namespace FckBrain.Engine
 
     public interface IMemory
     {
-        byte Peek(ulong address);
-        void Poke(ulong address, byte value);
-        string GetHexString(ulong start, ulong length);
-        ulong Size { get; }
+        byte Peek(long address);
+        void Poke(long address, byte value);
+        string GetHexString(long start, long length);
+        long Size { get; }
+        void Clear();
     }
 
 }

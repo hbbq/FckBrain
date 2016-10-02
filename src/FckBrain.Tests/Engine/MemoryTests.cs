@@ -13,7 +13,7 @@ namespace FckBrain.Tests.Engine
     public class MemoryTests
     {
 
-        private const ulong _heapSize = 30000;
+        private const long _heapSize = 30000;
 
         private IMemory GetMemoryInstance() => new Memory();
         
@@ -47,7 +47,7 @@ namespace FckBrain.Tests.Engine
         [InlineData(1000)]
         [InlineData(10000)]
         [InlineData(_heapSize-1)]
-        public void PeekShouldReturnZero(ulong address)
+        public void PeekShouldReturnZero(long address)
         {
             var memory = GetMemoryInstance();
             memory.Peek(address).ShouldBe<byte>(0);
@@ -57,7 +57,7 @@ namespace FckBrain.Tests.Engine
         [InlineData(0, 1, "00")]
         [InlineData(100, 3, "000000")]
         [InlineData(10000, 10, "00000000000000000000")]
-        public void GetHexString(ulong start, ulong length, string expected)
+        public void GetHexString(long start, long length, string expected)
         {
             var memory = GetMemoryInstance();
             memory.GetHexString(start, length).ShouldBe(expected);
@@ -68,7 +68,7 @@ namespace FckBrain.Tests.Engine
         [InlineData(0, 1)]
         [InlineData(1000, 10)]
         [InlineData(_heapSize - 1, 255)]
-        public void PokePeek(ulong address, byte value)
+        public void PokePeek(long address, byte value)
         {
             var memory = GetMemoryInstance();
             memory.Poke(address, value);
@@ -83,7 +83,17 @@ namespace FckBrain.Tests.Engine
             memory.Poke(3, 255);
             memory.GetHexString(0, 4).ShouldBe("001000FF");
         }
-        
+
+        [Fact]
+        public void ClearAfterPokes()
+        {
+            var memory = GetMemoryInstance();
+            memory.Poke(1, 16);
+            memory.Poke(3, 255);
+            memory.Clear();
+            memory.GetHexString(0, 4).ShouldBe("00000000");
+        }
+
     }
 
 }

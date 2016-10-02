@@ -42,8 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IBuffer.cs" />
     <Compile Include="IMemory.cs" />
+    <Compile Include="IState.cs" />
     <Compile Include="Memory.cs" />
+    <Compile Include="Runner.cs" />
     <Compile Include="State.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -53,6 +56,12 @@
   <ItemGroup>
     <Analyzer Include="..\packages\SonarAnalyzer.CSharp.1.18.0\analyzers\SonarAnalyzer.CSharp.dll" />
     <Analyzer Include="..\packages\SonarAnalyzer.CSharp.1.18.0\analyzers\SonarAnalyzer.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FckBrain.Parser\FckBrain.Parser.csproj">
+      <Project>{fb57e841-7d18-43cf-a79b-2cbbd4121274}</Project>
+      <Name>FckBrain.Parser</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
