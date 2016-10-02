@@ -10,7 +10,6 @@ namespace FckBrain.Parser.Commands
     {
         
         public override string Description => "Jumps to the matching block start command if the data at the pointer is not zero";
-        public override bool IsNoOp => false;
         public override char Symbol => ']';
 
     }

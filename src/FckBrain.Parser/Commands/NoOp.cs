@@ -19,7 +19,7 @@ namespace FckBrain.Parser.Commands
         }
 
         public override string Description => "NoOp command";
-        public override bool IsNoOp => false;
+        public override bool IsNoOp => true;
 
     }
 

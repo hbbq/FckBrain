@@ -10,7 +10,6 @@ namespace FckBrain.Parser.Commands
     {
         
         public override string Description => "Outputs the byte at the data pointer";
-        public override bool IsNoOp => false;
         public override char Symbol => '.';
 
     }

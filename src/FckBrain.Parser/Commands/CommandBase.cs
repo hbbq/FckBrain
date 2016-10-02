@@ -10,7 +10,7 @@ namespace FckBrain.Parser.Commands
     {
         
         public abstract char Symbol { get; }
-        public abstract bool IsNoOp { get; }
+        public virtual bool IsNoOp => false;
         public abstract string Description { get; }
 
         public CommandBase()

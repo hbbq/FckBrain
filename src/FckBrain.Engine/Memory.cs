@@ -22,21 +22,21 @@ namespace FckBrain.Engine
             
         }
 
-        ulong IMemory.Size => _size;
+        public ulong Size => _size;
 
-        byte IMemory.Peek(ulong address)
+        public byte Peek(ulong address)
         {
             if (address >= _size) throw new ArgumentOutOfRangeException();
             return _heap[address];
         }
 
-        void IMemory.Poke(ulong address, byte value)
+        public void Poke(ulong address, byte value)
         {
             if (address >= _size) throw new ArgumentOutOfRangeException();
             _heap[address] = value;
         }
 
-        string IMemory.GetHexString(ulong start, ulong length)
+        public string GetHexString(ulong start, ulong length)
         {
             if (start + length - 1 >= _size || length < 1) throw new ArgumentOutOfRangeException();
             return BitConverter.ToString(_heap, (int)start, (int)length).Replace("-", "");

@@ -12,6 +12,9 @@ namespace FckBrain.Parser
         string SourceCode { get; set; }
         void Parse();
         Commands.CommandBase SymbolToCommand(char symbol);
+        int NumberOfCommands { get; }
+        Commands.ICommand GetCommandAt(int position);
+        IEnumerable<Commands.ICommand> GetAllCommands();
 
     }
 }

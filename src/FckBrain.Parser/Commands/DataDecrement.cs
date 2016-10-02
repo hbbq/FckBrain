@@ -10,7 +10,6 @@ namespace FckBrain.Parser.Commands
     {
         
         public override string Description => "Decrements the data at the data pointer by 1";
-        public override bool IsNoOp => false;
         public override char Symbol => '-';
 
     }

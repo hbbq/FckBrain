@@ -9,14 +9,30 @@ namespace FckBrain.Parser
 {
     public class CodeParser : ICodeParser
     {
-        string ICodeParser.SourceCode { get; set; }
 
-        void ICodeParser.Parse()
+        private List<Commands.CommandBase> _commands;
+
+        public int NumberOfCommands => _commands?.Count() ?? 0;
+
+        public string SourceCode { get; set; }
+
+        public IEnumerable<ICommand> GetAllCommands()
         {
-            throw new NotImplementedException();
+            return _commands;
         }
 
-        CommandBase ICodeParser.SymbolToCommand(char symbol)
+        public ICommand GetCommandAt(int position)
+        {
+            if (position < 0 || position >= NumberOfCommands) throw new ArgumentOutOfRangeException();
+            return _commands[position];
+        }
+
+        public void Parse()
+        {
+            _commands = SourceCode.ToCharArray().Select(symbol => SymbolToCommand(symbol)).ToList();
+        }
+
+        public CommandBase SymbolToCommand(char symbol)
         {
             switch (symbol)
             {
