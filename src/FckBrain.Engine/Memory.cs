@@ -38,7 +38,7 @@ namespace FckBrain.Engine
 
         string IMemory.GetHexString(ulong start, ulong length)
         {
-            if (start + length - 1 >= _size) throw new ArgumentOutOfRangeException();
+            if (start + length - 1 >= _size || length < 1) throw new ArgumentOutOfRangeException();
             return BitConverter.ToString(_heap, (int)start, (int)length).Replace("-", "");
         }
     }

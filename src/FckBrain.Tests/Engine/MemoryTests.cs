@@ -31,6 +31,14 @@ namespace FckBrain.Tests.Engine
             Should.Throw<ArgumentOutOfRangeException>(() => memory.Poke(memory.Size, 0));
         }
 
+        [Fact]
+        public void GetHexStringOutOfRange()
+        {
+            var memory = GetMemoryInstance();
+            Should.Throw<ArgumentOutOfRangeException>(() => memory.GetHexString(_heapSize, 1));
+            Should.Throw<ArgumentOutOfRangeException>(() => memory.GetHexString(_heapSize, 0));
+        }
+
         [Theory]
         [InlineData(0)]
         [InlineData(1)]
@@ -44,7 +52,7 @@ namespace FckBrain.Tests.Engine
             var memory = GetMemoryInstance();
             memory.Peek(address).ShouldBe<byte>(0);
         }
-        
+
         [Theory]
         [InlineData(0, 1, "00")]
         [InlineData(100, 3, "000000")]
@@ -53,6 +61,19 @@ namespace FckBrain.Tests.Engine
         {
             var memory = GetMemoryInstance();
             memory.GetHexString(start, length).ShouldBe(expected);
+        }
+
+        [Theory]
+        [InlineData(0, 0)]
+        [InlineData(10, 10)]
+        [InlineData(100, 100)]
+        [InlineData(1000, 28)]
+        [InlineData(10000, 255)]
+        public void Poke(ulong address, byte value)
+        {
+            var memory = GetMemoryInstance();
+            memory.Poke(address, value);
+            memory.Peek(address).ShouldBe(value);
         }
 
     }
