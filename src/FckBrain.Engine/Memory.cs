@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FckBrain.Engine
 {
-    class Memory : IMemory
+    public class Memory : IMemory
     {
 
         private readonly byte[] _heap;

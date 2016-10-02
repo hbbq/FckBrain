@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace FckBrain.Engine
 {
 
-    interface IMemory
+    public interface IMemory
     {
         byte Peek(ulong address);
         void Poke(ulong address, byte value);
