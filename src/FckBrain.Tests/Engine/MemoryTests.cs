@@ -65,17 +65,25 @@ namespace FckBrain.Tests.Engine
 
         [Theory]
         [InlineData(0, 0)]
-        [InlineData(10, 10)]
-        [InlineData(100, 100)]
-        [InlineData(1000, 28)]
-        [InlineData(10000, 255)]
-        public void Poke(ulong address, byte value)
+        [InlineData(0, 1)]
+        [InlineData(1000, 10)]
+        [InlineData(_heapSize - 1, 255)]
+        public void PokePeek(ulong address, byte value)
         {
             var memory = GetMemoryInstance();
             memory.Poke(address, value);
             memory.Peek(address).ShouldBe(value);
         }
 
+        [Fact]
+        public void GetHexStringAfterPokes()
+        {
+            var memory = GetMemoryInstance();
+            memory.Poke(1, 16);
+            memory.Poke(3, 255);
+            memory.GetHexString(0, 4).ShouldBe("001000FF");
+        }
+        
     }
 
 }
