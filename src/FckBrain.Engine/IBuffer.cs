@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace FckBrain.Engine
 {
-    interface IBuffer
+    interface IBuffer : IMemory
     {
-
-        void Clear();
+                
         void Restart();
         void Append(byte value);
         byte Read();
+        bool EndOfBuffer { get; }
+        long Pointer { get; }
 
     }
 }
