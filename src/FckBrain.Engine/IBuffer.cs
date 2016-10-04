@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FckBrain.Engine
 {
-    interface IBuffer : IMemory
+    public interface IBuffer : IMemory
     {
                 
         void Restart();
