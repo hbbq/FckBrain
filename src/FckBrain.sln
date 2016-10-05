@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FckBrain.Tests", "FckBrain.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FckBrain.Parser", "FckBrain.Parser\FckBrain.Parser.csproj", "{FB57E841-7D18-43CF-A79B-2CBBD4121274}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FckBrain.Console", "FckBrain.Console\FckBrain.Console.csproj", "{E13E8B35-9045-46C7-9A98-456B5AF5A125}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{FB57E841-7D18-43CF-A79B-2CBBD4121274}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB57E841-7D18-43CF-A79B-2CBBD4121274}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB57E841-7D18-43CF-A79B-2CBBD4121274}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E13E8B35-9045-46C7-9A98-456B5AF5A125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E13E8B35-9045-46C7-9A98-456B5AF5A125}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E13E8B35-9045-46C7-9A98-456B5AF5A125}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E13E8B35-9045-46C7-9A98-456B5AF5A125}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

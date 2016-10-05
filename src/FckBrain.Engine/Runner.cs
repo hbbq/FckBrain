@@ -8,7 +8,7 @@ using FckBrain.Parser;
 namespace FckBrain.Engine
 {
 
-    class Runner
+    public class Runner
     {
 
         private readonly IState _state;
