@@ -47,6 +47,7 @@ namespace FckBrain.Engine
 
         public byte Read()
         {
+            if (EndOfBuffer) throw new EndOfBufferException();
             _pointer++;
             return Peek(_pointer-1);
         }

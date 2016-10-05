@@ -101,6 +101,59 @@ namespace FckBrain.Tests.Engine
             buffer.Size.ShouldBe(0);
         }
 
+        [Fact]
+        public void EndOfBuffer()
+        {
+            var buffer = GetBufferInstance();
+            for (var i = 0; i < 10; i++) buffer.Read();
+            buffer.EndOfBuffer.ShouldBe(true);
+        }
+
+        [Fact]
+        public void NotEndOfBuffer()
+        {
+            var buffer = GetBufferInstance();
+            for (var i = 0; i < 9; i++) buffer.Read();
+            buffer.EndOfBuffer.ShouldBe(false);
+        }
+
+        [Theory]
+        [InlineData(0)]
+        [InlineData(1)]
+        [InlineData(10)]
+        public void Pointer(int times)
+        {
+            var buffer = GetBufferInstance();
+            for (var i = 0; i < times; i++) buffer.Read();
+            buffer.Pointer.ShouldBe(times);
+        }
+
+        [Fact]
+        public void Append()
+        {
+            var buffer = GetBufferInstance();
+            buffer.Clear();
+            buffer.Append(100);
+            buffer.Peek(0).ShouldBe<byte>(100);
+        }
+
+        [Fact]
+        public void Read()
+        {
+            var buffer = GetBufferInstance();
+            buffer.Append(200);
+            for (var i = 0; i < 10; i++) buffer.Read();
+            buffer.Read().ShouldBe<byte>(200);
+        }
+
+        [Fact]
+        public void ReadEndOfBuffer()
+        {
+            var buffer = GetBufferInstance();
+            for (var i = 0; i < 10; i++) buffer.Read();
+            Should.Throw<EndOfBufferException>(() => buffer.Read());
+        }
+
     }
 
 }

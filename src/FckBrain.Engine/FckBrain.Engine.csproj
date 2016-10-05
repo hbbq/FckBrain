@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Buffer.cs" />
+    <Compile Include="EndOfBufferException.cs" />
     <Compile Include="IBuffer.cs" />
     <Compile Include="IMemory.cs" />
     <Compile Include="IState.cs" />
