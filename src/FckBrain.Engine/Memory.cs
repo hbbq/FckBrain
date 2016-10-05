@@ -45,5 +45,12 @@ namespace FckBrain.Engine
             if (start + length - 1 >= _size || length < 1) throw new ArgumentOutOfRangeException();
             return BitConverter.ToString(_heap, (int)start, (int)length).Replace("-", "");
         }
+
+        public string GetAsciiString(long start, long length)
+        {
+            if (start + length - 1 >= _size || length < 1) throw new ArgumentOutOfRangeException();
+            return Encoding.ASCII.GetString(_heap, (int)start, (int)length);
+        }
+
     }
 }

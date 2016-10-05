@@ -64,5 +64,23 @@ namespace FckBrain.Tests.Parser
             parser.GetCommandAt(16).ShouldBeOfType<FckBrain.Parser.Commands.BlockEnd>();
         }
 
+        [Fact]
+        public void FindBlockEnd()
+        {
+            var parser = GetCodeParser();
+            parser.SourceCode = @">>[>>[>>[>>]>>[>>[>>]>>]>>]>>]>>";
+            parser.Parse();
+            parser.GetPositionOfMatchingBlockEnd(5).ShouldBe(26);
+        }
+        
+        [Fact]
+        public void FindBlockStart()
+        {
+            var parser = GetCodeParser();
+            parser.SourceCode = @">>[>>[>>[>>]>>[>>[>>]>>]>>]>>]>>";
+            parser.Parse();
+            parser.GetPositionOfMatchingBlockStart(26).ShouldBe(5);
+        }
+
     }
 }

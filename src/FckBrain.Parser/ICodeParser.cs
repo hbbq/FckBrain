@@ -15,6 +15,8 @@ namespace FckBrain.Parser
         int NumberOfCommands { get; }
         Commands.ICommand GetCommandAt(int position);
         IEnumerable<Commands.ICommand> GetAllCommands();
+        int GetPositionOfMatchingBlockEnd(int position);
+        int GetPositionOfMatchingBlockStart(int position);
 
     }
 }

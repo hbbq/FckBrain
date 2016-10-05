@@ -36,7 +36,7 @@ namespace FckBrain.Engine
         {
             Memory.Poke(DataPointer, value);
         }
-
+        
     }
 
 }

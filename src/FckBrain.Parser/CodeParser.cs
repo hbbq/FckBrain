@@ -24,6 +24,34 @@ namespace FckBrain.Parser
             return _commands[position];
         }
 
+        public int GetPositionOfMatchingBlockEnd(int position)
+        {
+            var lvl = 1;
+            var pos = position;
+            while(lvl != 0)
+            {
+                pos++;
+                var c = GetCommandAt(pos);
+                if (c is Commands.BlockStart) lvl++;
+                if (c is Commands.BlockEnd) lvl--;
+            }
+            return pos;
+        }
+
+        public int GetPositionOfMatchingBlockStart(int position)
+        {
+            var lvl = 1;
+            var pos = position;
+            while (lvl != 0)
+            {
+                pos--;
+                var c = GetCommandAt(pos);
+                if (c is Commands.BlockStart) lvl--;
+                if (c is Commands.BlockEnd) lvl++;
+            }
+            return pos;
+        }
+
         public void Parse()
         {
             _commands = SourceCode.ToCharArray().Select(symbol => SymbolToCommand(symbol)).ToList();

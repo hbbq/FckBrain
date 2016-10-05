@@ -44,6 +44,15 @@ namespace FckBrain.Engine
             Output.Clear();
         }
 
+        public void ExecuteNextCommand()
+        {
+            var c = _parser.GetCommandAt(_instructionPointer);
+            ExecuteCommad(c);
+            _instructionPointer++;
+        }
+
+        public bool EndOfProgram => _instructionPointer >= _parser.NumberOfCommands;
+
         public void ExecuteCommad<T>(T command) where T: Parser.Commands.ICommand
         {
 
@@ -79,6 +88,21 @@ namespace FckBrain.Engine
                 State.SetData(Input.Read());
             }
 
+            if (command is Parser.Commands.BlockStart)
+            {
+                if (State.GetData() == 0) _instructionPointer = _parser.GetPositionOfMatchingBlockEnd(_instructionPointer);
+            }
+
+            if (command is Parser.Commands.BlockEnd)
+            {
+                if (State.GetData() != 0) _instructionPointer = _parser.GetPositionOfMatchingBlockStart(_instructionPointer);
+            }
+
+        }
+
+        public override string ToString()
+        {
+            return $"{State.Memory.GetHexString(0, 20)} {_instructionPointer}/{_parser.NumberOfCommands} {_output.GetAsciiString()}";
         }
 
     }

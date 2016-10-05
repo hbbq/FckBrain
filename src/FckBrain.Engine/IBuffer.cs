@@ -14,6 +14,7 @@ namespace FckBrain.Engine
         byte Read();
         bool EndOfBuffer { get; }
         long Pointer { get; }
+        string GetAsciiString();
 
     }
 }

@@ -32,6 +32,12 @@ namespace FckBrain.Engine
             if (start + length - 1 >= Size || length < 1) throw new ArgumentOutOfRangeException();
             return BitConverter.ToString(_data.ToArray(), (int)start, (int)length).Replace("-", "");
         }
+        
+        public string GetAsciiString(long start, long length)
+        {
+            if (start + length - 1 >= Size || length < 1) throw new ArgumentOutOfRangeException();
+            return Encoding.ASCII.GetString(_data.ToArray(), (int)start, (int)length);
+        }
 
         public byte Peek(long address)
         {
@@ -55,6 +61,12 @@ namespace FckBrain.Engine
         public void Restart()
         {
             _pointer = 0;
+        }
+
+        public string GetAsciiString()
+        {
+            if (Size == 0) return "";
+            return GetAsciiString(0, Size);
         }
     }
 
