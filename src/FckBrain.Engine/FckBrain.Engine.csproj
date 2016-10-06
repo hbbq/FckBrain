@@ -46,6 +46,7 @@
     <Compile Include="EndOfBufferException.cs" />
     <Compile Include="IBuffer.cs" />
     <Compile Include="IMemory.cs" />
+    <Compile Include="IRunner.cs" />
     <Compile Include="IState.cs" />
     <Compile Include="Memory.cs" />
     <Compile Include="Runner.cs" />

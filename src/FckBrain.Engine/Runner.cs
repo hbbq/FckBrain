@@ -8,7 +8,7 @@ using FckBrain.Parser;
 namespace FckBrain.Engine
 {
 
-    public class Runner
+    public class Runner : IRunner
     {
 
         private readonly IState _state;
@@ -105,6 +105,20 @@ namespace FckBrain.Engine
             return $"{State.Memory.GetHexString(0, 20)} {_instructionPointer}/{_parser.NumberOfCommands} {_output.GetAsciiString()}";
         }
 
+        public void RunProgram()
+        {
+            while (!EndOfProgram)
+            {
+                ExecuteNextCommand();
+            }
+        }
+
+        public void Setup(string sourceCode)
+        {
+            _parser.SourceCode = sourceCode;
+            _parser.Parse();
+            Reset();
+        }
     }
 
 }
