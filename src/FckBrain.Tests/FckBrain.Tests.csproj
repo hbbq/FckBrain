@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Engine\BufferTests.cs" />
+    <Compile Include="Engine\RunnerTests.cs" />
     <Compile Include="Parser\CodeParserTests.cs" />
     <Compile Include="Engine\MemoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

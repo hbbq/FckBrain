@@ -5,7 +5,6 @@ namespace FckBrain.Engine
 {
     public interface IRunner
     {
-        bool Completed { get; }
         bool EndOfProgram { get; }
         IBuffer Input { get; }
         int InstructionPointer { get; }

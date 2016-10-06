@@ -19,9 +19,7 @@ namespace FckBrain.Engine
 
         private int _instructionPointer = 0;
         public int InstructionPointer => _instructionPointer;
-
-        public bool Completed => InstructionPointer >= _parser.NumberOfCommands;
-
+        
         private readonly IBuffer _input;
         private readonly IBuffer _output;
 
