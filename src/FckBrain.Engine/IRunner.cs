@@ -13,7 +13,7 @@ namespace FckBrain.Engine
         IState State { get; }
 
         void RunProgram();
-        void ExecuteCommad<T>(T command) where T : ICommand;
+        void ExecuteCommad(ICommand command);
         void ExecuteNextCommand();
         void Setup(string sourceCode);
         void Reset();

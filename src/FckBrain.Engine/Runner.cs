@@ -51,7 +51,7 @@ namespace FckBrain.Engine
 
         public bool EndOfProgram => _instructionPointer >= _parser.NumberOfCommands;
 
-        public void ExecuteCommad<T>(T command) where T: Parser.Commands.ICommand
+        public void ExecuteCommad(Parser.Commands.ICommand command)
         {
 
             if(command is Parser.Commands.PointerIncrement)
