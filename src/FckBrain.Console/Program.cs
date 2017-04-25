@@ -11,7 +11,7 @@ namespace FckBrain.Console
         static void Main(string[] args)
         {
 
-            var code = @"++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.";
+            var code = FckBrain.Examples.Sources.HelloWorld; 
 
             var runner = new Engine.Runner(
                 new Engine.State(
@@ -32,6 +32,8 @@ namespace FckBrain.Console
                 System.Diagnostics.Trace.WriteLine(runner.ToString());
             }
 
+            var x = runner.Output.GetAsciiString();
+            
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FckBrain.Engine", "FckBrain.Engine\FckBrain.Engine.csproj", "{60E2C45C-5E6C-4977-A51C-014DBA47EDB4}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FckBrain.Parser", "FckBrain.Parser\FckBrain.Parser.csproj", "{FB57E841-7D18-43CF-A79B-2CBBD4121274}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FckBrain.Console", "FckBrain.Console\FckBrain.Console.csproj", "{E13E8B35-9045-46C7-9A98-456B5AF5A125}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FckBrain.Examples", "FckBrain.Examples\FckBrain.Examples.csproj", "{E561FB9B-8D47-4B08-B7F0-AA0DEFAF4BF4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{E13E8B35-9045-46C7-9A98-456B5AF5A125}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E13E8B35-9045-46C7-9A98-456B5AF5A125}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E13E8B35-9045-46C7-9A98-456B5AF5A125}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E561FB9B-8D47-4B08-B7F0-AA0DEFAF4BF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E561FB9B-8D47-4B08-B7F0-AA0DEFAF4BF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E561FB9B-8D47-4B08-B7F0-AA0DEFAF4BF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E561FB9B-8D47-4B08-B7F0-AA0DEFAF4BF4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

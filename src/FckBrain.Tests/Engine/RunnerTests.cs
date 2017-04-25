@@ -12,7 +12,7 @@ namespace FckBrain.Tests.Engine
     public class RunnerTests
     {
 
-        private const string helloWorldSource = @"++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.";
+        private readonly string helloWorldSource = FckBrain.Examples.Sources.HelloWorld;
         private const string shortProgramSource = @">>+";
 
 

@@ -76,6 +76,10 @@
       <Project>{60e2c45c-5e6c-4977-a51c-014dba47edb4}</Project>
       <Name>FckBrain.Engine</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FckBrain.Examples\FckBrain.Examples.csproj">
+      <Project>{e561fb9b-8d47-4b08-b7f0-aa0defaf4bf4}</Project>
+      <Name>FckBrain.Examples</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FckBrain.Parser\FckBrain.Parser.csproj">
       <Project>{fb57e841-7d18-43cf-a79b-2cbbd4121274}</Project>
       <Name>FckBrain.Parser</Name>
