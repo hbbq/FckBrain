@@ -46,5 +46,8 @@
   <ItemGroup>
     <EmbeddedResource Include="HelloWorld.bf" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Fibonacci.bf" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

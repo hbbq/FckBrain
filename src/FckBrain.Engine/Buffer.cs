@@ -19,7 +19,7 @@ namespace FckBrain.Engine
 
         public long Size => _data.Count;
 
-        public void Append(byte value) => _data.Add(value);
+        public virtual void Append(byte value) => _data.Add(value);
 
         public void Clear()
         {

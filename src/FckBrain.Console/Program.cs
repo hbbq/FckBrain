@@ -11,7 +11,7 @@ namespace FckBrain.Console
         static void Main(string[] args)
         {
 
-            var code = FckBrain.Examples.Sources.HelloWorld; 
+            var code = FckBrain.Examples.Sources.Fibonacci; 
 
             var runner = new Engine.Runner(
                 new Engine.State(
@@ -19,7 +19,7 @@ namespace FckBrain.Console
                 ),
                 new Parser.CodeParser(),
                 new Engine.Buffer(),
-                new Engine.Buffer()
+                new consoleOut()
             );
 
             runner.Parser.SourceCode = code;
@@ -29,11 +29,19 @@ namespace FckBrain.Console
             while (!runner.EndOfProgram)
             {
                 runner.ExecuteNextCommand();
-                System.Diagnostics.Trace.WriteLine(runner.ToString());
             }
 
-            var x = runner.Output.GetAsciiString();
+            System.Console.ReadKey();
             
+        }
+
+        private class consoleOut : FckBrain.Engine.Buffer
+        {
+            public override void Append(byte value)
+            {
+                System.Console.Write(System.Text.Encoding.ASCII.GetString(new[] { value }));
+                base.Append(value);
+            }
         }
     }
 }
