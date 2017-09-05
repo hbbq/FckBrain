@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FckBrain.Console
+﻿namespace FckBrain.Console
 {
     static class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
 
-            var code = FckBrain.Examples.Sources.Fibonacci; 
+            var code = Examples.Sources.Fibonacci; 
 
             var runner = new Engine.Runner(
                 new Engine.State(
@@ -19,7 +13,7 @@ namespace FckBrain.Console
                 ),
                 new Parser.CodeParser(),
                 new Engine.Buffer(),
-                new consoleOut()
+                new ConsoleOut()
             );
 
             runner.Parser.SourceCode = code;
@@ -35,7 +29,7 @@ namespace FckBrain.Console
             
         }
 
-        private class consoleOut : FckBrain.Engine.Buffer
+        private class ConsoleOut : Engine.Buffer
         {
             public override void Append(byte value)
             {

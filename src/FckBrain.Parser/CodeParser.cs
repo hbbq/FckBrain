@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using FckBrain.Parser.Commands;
 
 namespace FckBrain.Parser
@@ -10,7 +8,7 @@ namespace FckBrain.Parser
     public class CodeParser : ICodeParser
     {
 
-        private List<Commands.CommandBase> _commands;
+        private List<CommandBase> _commands;
 
         public int NumberOfCommands => _commands?.Count() ?? 0;
 
@@ -32,8 +30,8 @@ namespace FckBrain.Parser
             {
                 pos++;
                 var c = GetCommandAt(pos);
-                if (c is Commands.BlockStart) lvl++;
-                if (c is Commands.BlockEnd) lvl--;
+                if (c is BlockStart) lvl++;
+                if (c is BlockEnd) lvl--;
             }
             return pos;
         }
@@ -46,8 +44,8 @@ namespace FckBrain.Parser
             {
                 pos--;
                 var c = GetCommandAt(pos);
-                if (c is Commands.BlockStart) lvl--;
-                if (c is Commands.BlockEnd) lvl++;
+                if (c is BlockStart) lvl--;
+                if (c is BlockEnd) lvl++;
             }
             return pos;
         }

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace FckBrain.Engine
 {
@@ -10,7 +8,7 @@ namespace FckBrain.Engine
     public class Buffer : IBuffer
     {
 
-        private long _pointer = 0;
+        private long _pointer;
         private readonly List<byte> _data = new List<byte>();
 
         public bool EndOfBuffer => Pointer >= Size;

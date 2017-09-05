@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FckBrain.Parser;
+using FckBrain.Parser.Commands;
 
 namespace FckBrain.Engine
 {
@@ -53,45 +54,45 @@ namespace FckBrain.Engine
 
         public void ExecuteCommad(Parser.Commands.ICommand command)
         {
-
-            if(command is Parser.Commands.PointerIncrement)
+            
+            if(command is PointerIncrement)
             {
                 if (State.DataPointer > State.Memory.Size - 2) throw new OutOfMemoryException();
                 State.DataPointer++;
             }
 
-            if (command is Parser.Commands.PointerDecrement)
+            if (command is PointerDecrement)
             {
                 if (State.DataPointer <= 0) throw new OutOfMemoryException();
                 State.DataPointer--;
             }
 
-            if (command is Parser.Commands.DataIncrement)
+            if (command is DataIncrement)
             {
                 State.SetData((byte)((State.GetData() + 1) % 256));
             }
 
-            if (command is Parser.Commands.DataDecrement)
+            if (command is DataDecrement)
             {
                 State.SetData((byte)((State.GetData() + 255) % 256));
             }
 
-            if (command is Parser.Commands.Output)
+            if (command is Output)
             {
                 Output.Append(State.GetData());
             }
 
-            if (command is Parser.Commands.Input)
+            if (command is Input)
             {
                 State.SetData(Input.Read());
             }
 
-            if (command is Parser.Commands.BlockStart)
+            if (command is BlockStart)
             {
                 if (State.GetData() == 0) _instructionPointer = _parser.GetPositionOfMatchingBlockEnd(_instructionPointer);
             }
 
-            if (command is Parser.Commands.BlockEnd)
+            if (command is BlockEnd)
             {
                 if (State.GetData() != 0) _instructionPointer = _parser.GetPositionOfMatchingBlockStart(_instructionPointer);
             }

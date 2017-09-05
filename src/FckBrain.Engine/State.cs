@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FckBrain.Parser;
-
-namespace FckBrain.Engine
+﻿namespace FckBrain.Engine
 {
 
     public class State : IState
@@ -14,7 +7,7 @@ namespace FckBrain.Engine
         private readonly IMemory _memory;
         public IMemory Memory => _memory;
 
-        public int DataPointer { get; set; } = 0;
+        public int DataPointer { get; set; }
 
         public State(IMemory memory)
         {
