@@ -7,6 +7,7 @@ namespace FckBrain.Engine
     {
 
         private readonly byte[] _heap;
+
         private readonly long _size = 30000;
         
         public Memory()
@@ -50,4 +51,5 @@ namespace FckBrain.Engine
         }
 
     }
+
 }

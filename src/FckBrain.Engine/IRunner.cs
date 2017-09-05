@@ -3,8 +3,10 @@ using FckBrain.Parser.Commands;
 
 namespace FckBrain.Engine
 {
+
     public interface IRunner
     {
+
         bool EndOfProgram { get; }
         IBuffer Input { get; }
         int InstructionPointer { get; }
@@ -17,5 +19,7 @@ namespace FckBrain.Engine
         void ExecuteNextCommand();
         void Setup(string sourceCode);
         void Reset();
+
     }
+
 }

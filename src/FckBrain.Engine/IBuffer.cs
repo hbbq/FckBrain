@@ -1,5 +1,6 @@
 ﻿namespace FckBrain.Engine
 {
+
     public interface IBuffer : IMemory
     {
                 
@@ -11,4 +12,5 @@
         string GetAsciiString();
 
     }
+
 }

@@ -20,15 +20,9 @@
             DataPointer = 0;
         }
 
-        public byte GetData()
-        {
-            return Memory.Peek(DataPointer);
-        }
+        public byte GetData() => Memory.Peek(DataPointer);
 
-        public void SetData(byte value)
-        {
-            Memory.Poke(DataPointer, value);
-        }
+        public void SetData(byte value) => Memory.Poke(DataPointer, value);
         
     }
 

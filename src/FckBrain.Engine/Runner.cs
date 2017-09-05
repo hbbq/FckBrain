@@ -18,9 +18,9 @@ namespace FckBrain.Engine
         public int InstructionPointer => _instructionPointer;
         
         private readonly IBuffer _input;
-        private readonly IBuffer _output;
-
         public IBuffer Input => _input;
+
+        private readonly IBuffer _output;
         public IBuffer Output => _output;
 
         public Runner(IState state, ICodeParser parser, IBuffer input, IBuffer output)
@@ -51,54 +51,39 @@ namespace FckBrain.Engine
         public void ExecuteCommad(ICommand command)
         {
             
-            if(command is PointerIncrement)
+            switch (command)
             {
-                if (State.DataPointer > State.Memory.Size - 2) throw new OutOfMemoryException();
-                State.DataPointer++;
-            }
-
-            if (command is PointerDecrement)
-            {
-                if (State.DataPointer <= 0) throw new OutOfMemoryException();
-                State.DataPointer--;
-            }
-
-            if (command is DataIncrement)
-            {
-                State.SetData((byte)((State.GetData() + 1) % 256));
-            }
-
-            if (command is DataDecrement)
-            {
-                State.SetData((byte)((State.GetData() + 255) % 256));
-            }
-
-            if (command is Output)
-            {
-                Output.Append(State.GetData());
-            }
-
-            if (command is Input)
-            {
-                State.SetData(Input.Read());
-            }
-
-            if (command is BlockStart)
-            {
-                if (State.GetData() == 0) _instructionPointer = _parser.GetPositionOfMatchingBlockEnd(_instructionPointer);
-            }
-
-            if (command is BlockEnd)
-            {
-                if (State.GetData() != 0) _instructionPointer = _parser.GetPositionOfMatchingBlockStart(_instructionPointer);
+                case PointerIncrement _:
+                    if (State.DataPointer > State.Memory.Size - 2) throw new OutOfMemoryException();
+                    State.DataPointer++;
+                    break;
+                case PointerDecrement _:
+                    if (State.DataPointer <= 0) throw new OutOfMemoryException();
+                    State.DataPointer--;
+                    break;
+                case DataIncrement _:
+                    State.SetData((byte)((State.GetData() + 1) % 256));
+                    break;
+                case DataDecrement _:
+                    State.SetData((byte)((State.GetData() + 255) % 256));
+                    break;
+                case Output _:
+                    Output.Append(State.GetData());
+                    break;
+                case Input _:
+                    State.SetData(Input.Read());
+                    break;
+                case BlockStart _:
+                    if (State.GetData() == 0) _instructionPointer = _parser.GetPositionOfMatchingBlockEnd(_instructionPointer);
+                    break;
+                case BlockEnd _:
+                    if (State.GetData() != 0) _instructionPointer = _parser.GetPositionOfMatchingBlockStart(_instructionPointer);
+                    break;
             }
 
         }
 
-        public override string ToString()
-        {
-            return $"{State.Memory.GetHexString(0, 20)} {_instructionPointer}/{_parser.NumberOfCommands} {_output.GetAsciiString()}";
-        }
+        public override string ToString() => $"{State.Memory.GetHexString(0, 20)} {_instructionPointer}/{_parser.NumberOfCommands} {_output.GetAsciiString()}";
 
         public void RunProgram()
         {
@@ -114,6 +99,7 @@ namespace FckBrain.Engine
             _parser.Parse();
             Reset();
         }
+
     }
 
 }

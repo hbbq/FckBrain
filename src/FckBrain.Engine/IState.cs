@@ -1,5 +1,6 @@
 ﻿namespace FckBrain.Engine
 {
+
     public interface IState
     {
 
@@ -10,4 +11,5 @@
         void SetData(byte value);
 
     }
+
 }

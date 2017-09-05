@@ -9,6 +9,7 @@ namespace FckBrain.Engine
     {
 
         private long _pointer;
+
         private readonly List<byte> _data = new List<byte>();
 
         public bool EndOfBuffer => Pointer >= Size;
@@ -56,16 +57,10 @@ namespace FckBrain.Engine
             return Peek(_pointer-1);
         }
 
-        public void Restart()
-        {
-            _pointer = 0;
-        }
+        public void Restart() => _pointer = 0;
 
-        public string GetAsciiString()
-        {
-            if (Size == 0) return "";
-            return GetAsciiString(0, Size);
-        }
+        public string GetAsciiString() => Size == 0 ? "" : GetAsciiString(0, Size);
+
     }
 
 }
