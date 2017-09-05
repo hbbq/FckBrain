@@ -5,6 +5,7 @@ using FckBrain.Parser.Commands;
 
 namespace FckBrain.Parser
 {
+
     public class CodeParser : ICodeParser
     {
 
@@ -50,10 +51,7 @@ namespace FckBrain.Parser
             return pos;
         }
 
-        public void Parse()
-        {
-            _commands = SourceCode.ToCharArray().Select(symbol => SymbolToCommand(symbol)).ToList();
-        }
+        public void Parse() => _commands = SourceCode.ToCharArray().Select(SymbolToCommand).ToList();
 
         public CommandBase SymbolToCommand(char symbol)
         {
@@ -70,5 +68,7 @@ namespace FckBrain.Parser
                 default: return new NoOp(symbol);
             }
         }
+
     }
+
 }

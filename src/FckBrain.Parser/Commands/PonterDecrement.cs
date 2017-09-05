@@ -1,5 +1,6 @@
 ﻿namespace FckBrain.Parser.Commands
 {
+
     public class PointerDecrement : CommandBase
     {
         

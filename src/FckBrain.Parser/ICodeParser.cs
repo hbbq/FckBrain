@@ -2,6 +2,7 @@
 
 namespace FckBrain.Parser
 {
+
     public interface ICodeParser
     {
 
@@ -15,4 +16,5 @@ namespace FckBrain.Parser
         int GetPositionOfMatchingBlockStart(int position);
 
     }
+
 }

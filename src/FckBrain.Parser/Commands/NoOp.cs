@@ -13,6 +13,7 @@
         }
 
         public override string Description => "NoOp command";
+
         public override bool IsNoOp => true;
 
     }
