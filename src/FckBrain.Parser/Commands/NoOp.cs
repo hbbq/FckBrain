@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FckBrain.Parser.Commands
+﻿namespace FckBrain.Parser.Commands
 {
     public class NoOp : CommandBase
     {
@@ -13,7 +7,7 @@ namespace FckBrain.Parser.Commands
 
         public override char Symbol => _symbol;
 
-        public NoOp(char symbol) : base()
+        public NoOp(char symbol)
         {
             _symbol = symbol;
         }

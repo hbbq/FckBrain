@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FckBrain.Parser.Commands
+﻿namespace FckBrain.Parser.Commands
 {
     public interface ICommand
     {
@@ -14,4 +8,5 @@ namespace FckBrain.Parser.Commands
         string Description { get; }
 
     }
+
 }

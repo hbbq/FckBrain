@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FckBrain.Engine;
+﻿using FckBrain.Engine;
 using Xunit;
 using Shouldly;
 
@@ -12,8 +7,8 @@ namespace FckBrain.Tests.Engine
     public class RunnerTests
     {
 
-        private readonly string helloWorldSource = FckBrain.Examples.Sources.HelloWorld;
-        private const string shortProgramSource = @">>+";
+        private readonly string _helloWorldSource = Examples.Sources.HelloWorld;
+        private const string ShortProgramSource = @">>+";
 
 
         private IRunner GetRunner()
@@ -23,21 +18,21 @@ namespace FckBrain.Tests.Engine
                     new Memory()
                 ),
                 new FckBrain.Parser.CodeParser(),
-                new FckBrain.Engine.Buffer(),
-                new FckBrain.Engine.Buffer()
+                new Buffer(),
+                new Buffer()
             );
         }
 
         private IRunner GetRunnerShortCode()
         {
             var runner = GetRunner();
-            runner.Setup(shortProgramSource);
+            runner.Setup(ShortProgramSource);
             return runner;
         }
         private IRunner GetRunnerHelloWorld()
         {
             var runner = GetRunner();
-            runner.Setup(helloWorldSource);
+            runner.Setup(_helloWorldSource);
             return runner;
         }
 

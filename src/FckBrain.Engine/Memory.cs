@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace FckBrain.Engine
 {
@@ -10,7 +7,7 @@ namespace FckBrain.Engine
     {
 
         private readonly byte[] _heap;
-        private const long _size = 30000;
+        private readonly long _size = 30000;
         
         public Memory()
         {
@@ -20,7 +17,7 @@ namespace FckBrain.Engine
 
         public void Clear()
         {
-            for (ulong address = 0; address < _size; address++)
+            for (long address = 0; address < _size; address++)
             {
                 _heap[address] = 0;
             }

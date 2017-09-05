@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using FckBrain.Parser;
 using FckBrain.Parser.Commands;
 
@@ -18,7 +14,7 @@ namespace FckBrain.Engine
         private readonly ICodeParser _parser;
         public ICodeParser Parser => _parser;
 
-        private int _instructionPointer = 0;
+        private int _instructionPointer;
         public int InstructionPointer => _instructionPointer;
         
         private readonly IBuffer _input;
@@ -52,7 +48,7 @@ namespace FckBrain.Engine
 
         public bool EndOfProgram => _instructionPointer >= _parser.NumberOfCommands;
 
-        public void ExecuteCommad(Parser.Commands.ICommand command)
+        public void ExecuteCommad(ICommand command)
         {
             
             if(command is PointerIncrement)

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using FckBrain.Engine;
 using Xunit;
 using Shouldly;
@@ -13,7 +9,7 @@ namespace FckBrain.Tests.Engine
     public class MemoryTests
     {
 
-        private const long _heapSize = 30000;
+        private const long HeapSize = 30000;
 
         private IMemory GetMemoryInstance() => new Memory();
         
@@ -35,8 +31,8 @@ namespace FckBrain.Tests.Engine
         public void GetHexStringOutOfRange()
         {
             var memory = GetMemoryInstance();
-            Should.Throw<ArgumentOutOfRangeException>(() => memory.GetHexString(_heapSize, 1));
-            Should.Throw<ArgumentOutOfRangeException>(() => memory.GetHexString(_heapSize, 0));
+            Should.Throw<ArgumentOutOfRangeException>(() => memory.GetHexString(HeapSize, 1));
+            Should.Throw<ArgumentOutOfRangeException>(() => memory.GetHexString(HeapSize, 0));
         }
 
         [Theory]
@@ -46,7 +42,7 @@ namespace FckBrain.Tests.Engine
         [InlineData(100)]
         [InlineData(1000)]
         [InlineData(10000)]
-        [InlineData(_heapSize-1)]
+        [InlineData(HeapSize-1)]
         public void PeekShouldReturnZero(long address)
         {
             var memory = GetMemoryInstance();
@@ -67,7 +63,7 @@ namespace FckBrain.Tests.Engine
         [InlineData(0, 0)]
         [InlineData(0, 1)]
         [InlineData(1000, 10)]
-        [InlineData(_heapSize - 1, 255)]
+        [InlineData(HeapSize - 1, 255)]
         public void PokePeek(long address, byte value)
         {
             var memory = GetMemoryInstance();
